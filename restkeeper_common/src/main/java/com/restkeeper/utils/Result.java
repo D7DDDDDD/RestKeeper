@@ -7,11 +7,17 @@ import lombok.Data;
  */
 @Data
 public class Result {
-    // 返回状态
+    /**
+     * 返回状态
+     */
     private int status;
-    // 状态描述
+    /**
+     * 状态描述
+     */
     private String desc;
-    // 返回数据
+    /**
+     * 返回的数据
+     */
     private Object data;
 
     private String token;

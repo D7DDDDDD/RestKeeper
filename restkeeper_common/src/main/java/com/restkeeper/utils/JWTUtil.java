@@ -14,7 +14,9 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Map;
 
-
+/**
+ * jwt令牌的生成和解析
+ */
 public class JWTUtil{
     /**
      * 签发JWT
@@ -31,9 +33,11 @@ public class JWTUtil{
         ZoneId zoneId = ZoneId.systemDefault();
         ZonedDateTime zdt = LocalDateTime.now().plusDays(3).atZone(zoneId);
 
-        //添加构成JWT的参数
+        /**
+         *  添加构成JWT的参数
+         */
         JwtBuilder builder = Jwts.builder().setHeaderParam("typ", "JWT")
-                .setId("restkeeper") //签发应用Id
+                .setId("restkeeper") // 签发应用Id
                 .setIssuedAt(Date.from(zdt.toInstant())) //签发时间
                 .setHeaderParam("alg", "HS256")  //加密算法
                 .addClaims(tokenMap)
